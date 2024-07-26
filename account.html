@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link
+href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+"
+rel="stylesheet"
+/>
+
+<title>Product Category</title>
+</head>
+<style>
+
+    .Search_btn {
+        background-color: #CC723F;
+        border: none;
+        color: white;
+        font-weight: 700;
+        padding: .5rem 1rem;
+    }
+
+    .header_item_icon i {
+        font-size: 1.7rem;
+        background-color: white;
+
+        margin-left: 1rem;
+    }
+
+    .header {
+
+
+        padding: 1rem;
+    }
+
+
+
+    .nav {
+        display: flex;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-right: 1rem;
+    }
+
+    .nav-links li a {
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem 0rem;
+    /* font-weight: bold; */
+    font-size: 22px;
+    font-family: fangsong;
+}
+
+    .menu-toggle {
+        display: none;
+        /* Initially hidden on larger screens */
+    }
+
+    .mobile_search_box {
+        display: none;
+    }
+
+    .mobile_search_box i {
+        font-size: 1.5rem;
+        color: #343434;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+        .nav {
+            display: none;
+            /* Hide navigation links on small screens */
+            flex-direction: column;
+            position: absolute;
+            top: 90px;
+            /* Adjust as needed */
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+
+        }
+
+        .nav.active {
+            display: flex;
+            z-index: 2;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .nav-links li {
+            margin: 0.5rem 0;
+        }
+
+        .menu-toggle {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .menu-btn i {
+            font-size: 2rem;
+            color: #343434;
+        }
+
+        .Search_box {
+            display: none;
+        }
+
+        .mobile_logo {
+            width: 100%;
+            padding-left: 3rem;
+        }
+
+        .mobile_search_box {
+            display: block;
+        }
+    }
+
+    .rating {
+  margin-top: 40px;
+  border: none;
+  float: left;
+}
+
+.rating > label {
+  color: #F79426;
+  float: right;
+  cursor: pointer;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome; /* Ensure Font Awesome is correctly linked */
+  content: "\f005";
+  display: inline-block;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #F79426 !important;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FECE31 !important;
+}
+.header-line{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+</style>
+
+<body>
+    <!-- ///////HEADER TOP STARTS////////// -->
+
+
+    
+    <div class="container-fluid p-4">
+        <div class="row header-line">
+            <div class="col-lg-8 col-8">
+                <div class="row" style="align-items: center;">
+                <div class="col-lg-2 col-6 d-flex">
+                    <div class="menu-toggle">
+                        <a href="#" class="menu-btn"><i class="fa-solid fa-bars"></i></a>
+                    </div>
+                    <img class="mobile_logo img-responsive logo" src="images/oswal-logo.png" alt="">
+                </div>
+                <div class="col-lg-10">
+                    <nav class="nav">
+                        <ul class="nav-links">
+                            <li class="mobile_search_box">
+                                <div class="d-flex ">
+                                    <input type="text" class="border-0" placeholder="Search Products..."
+                                        aria-label="First name">
+                                    <span class="ps-1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                </div>
+                            </li>
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="product_category.html">Product Category</a></li>
+                            <li><a href="product_detail.html">Product Detail</a></li>
+                            <li><a href="wishlist_page.html">Wishlist</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="myorders.html">My Orders</a></li>
+                        </ul>
+    
+                    </nav>
+                </div>
+            </div>  
+            </div>
+            <div class="col-lg-4 col-4">
+                <div class="row">
+                    <div class="col-lg-8 Search_box">
+                        <div class="d-flex">
+                            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                            <button class="d-flex Search_btn">SEARCH <span class="ps-1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span></button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <div class="d-flex justify-content-end header_item_icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="dropdown">
+                                    <i class="fa-solid fa-user dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">My Account</a></li>
+                                  <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- ///////HEADER TOP ENDS////////// -->
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="data:image/jpeg;base64,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" class="rounded-circle profile-img mb-3" alt="Profile Image">
+                        <h4 id="usernameDisplay">User Name</h4>
+                        <p class="text-muted" id="emailDisplay">user@example.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        User Information
+                    </div>
+                    <div class="card-body">
+                        <form id="userForm">
+                            <div class="quoter_set">
+                            <div class="form-group mt-4">
+                                <label for="firstname">First Name</label>
+                                <input type="text" class="form-control" id="firstname" value="First Name" readonly>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" value="Last Name" readonly>
+                            </div>
+                        </div>
+                        <div class="quoter_set">
+                            <div class="form-group mt-4">
+                                <label for="phone">Phone No.</label>
+                                <input type="number" class="form-control" id="phone" value="1234567890" readonly>
+                            </div>
+                            
+                            <div class="form-group mt-4">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" value="user@example.com" readonly>
+                            </div>
+                        </div>                            
+                            <button type="button" class="btn btn-warning mt-4" id="editButton">Edit Information</button>
+                            <button type="submit" class="btn btn-success mt-4" id="saveButton" style="display:none;">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- ///////////////Footer Section STARTS////////////////// -->
+    <footer class="footer-section section-padding">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Uttam Chand Desraj 10/OB/35, Oswal Tower, <br>Ring Road Project, Near Reliance
+                                    Petrol Pump, Lakeshra, Agra Road, Jaipur-303012</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+91-91161 71956</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>info@oswalsoap1956.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="oswal-logo.png" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Oswal Soap Group is Laundry Products Manufacturer in Jaipur, Rajasthan. Our Laundry
+                                    Products are manufactured with the use of best quality ingredients to provide
+                                    complete care to the clothes.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-instagram instagram-bg"></i></a>
+                                <a href="#"><i class="fab fa-youtube youtube-bg"></i></a>
+                                <a href="#"><i class="fab fa-linkedin linkedin-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Find Shop</a></li>
+                                <li><a href="#">Dealer Enquiry</a></li>
+                                <li><a href="#">Reciepe</a></li>
+                                <li><a href="#">Manufacturing Units</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved <b>Oswal Soap</b></a></p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-right">
+                        <div class="copyright-text">
+                            <p>Developed by <b>Fineoutput Technologies</b></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ///////////////Footer Section END////////////////// -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/4.1.4/js/splide.min.js" integrity="sha512-4TcjHXQMLM7Y6eqfiasrsnRCc8D/unDeY1UGKGgfwyLUCTsHYMxF7/UHayjItKQKIoP6TTQ6AMamb9w2GMAvNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+<script src="script.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#editButton').click(function() {
+            $('#firstname, #email, #phone, #lastname').removeAttr('readonly');
+            $('#editButton').hide();
+            $('#saveButton').show();
+        });
+
+        $('#userForm').submit(function(event) {
+            event.preventDefault();
+            // Handle form submission, e.g., save changes to the server
+            $('#firstname, #email, #phone, #lastname').attr('readonly', 'readonly');
+            $('#saveButton').hide();
+            $('#editButton').show();
+        });
+    });
+</script>
+</body>
+
+</html>
